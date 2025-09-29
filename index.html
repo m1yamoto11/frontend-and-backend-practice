@@ -6,7 +6,6 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Главная страница</title>
      <link rel="stylesheet" href="style/styles.css">
-     <link rel="main.js" href="./main.js">
 </head>
 
 <body>
@@ -63,6 +62,51 @@
      <footer class="footer">
           <p>&copy; 2025 Кокоев Артем. Все права защищены.</p>
      </footer>
+
+     <dialog id="contactDialog" aria-labelledby="dialogTitle" class="dialog">
+          <h2 id="dialogTitle" class="dialog__title">Обратная связь</h2>
+
+          <form id="contactForm" method="dialog" novalidate class="form">
+
+               <label for="name" class="form__label">Имя</label>
+               <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name"
+                    aria-describedby="nameHelp" class="form__input">
+               <small id="nameHelp" class="form__help">Минимум 2 символа</small>
+
+               <label for="email" class="form__label">E-mail</label>
+               <input id="email" name="email" type="email" required autocomplete="email" class="form__input">
+
+               <label for="phone" class="form__label">Телефон</label>
+               <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="phoneHelp"
+                    placeholder="+7 (___) ___-__-__" required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                    class="form__input">
+               <small id="phoneHelp" class="form__help">Формат: +7 (900) 000-00-00</small>
+
+               <label for="date" class="form__label">Дата желаемого контакта</label>
+               <input id="date" name="date" type="date" class="form__input">
+
+               <label for="topic" class="form__label">Тема обращения</label>
+               <select id="topic" name="topic" required class="form__select">
+                    <option value="">Выберите тему</option>
+                    <option value="question">Общий вопрос</option>
+                    <option value="order">Заказ услуги</option>
+                    <option value="complaint">Жалоба</option>
+                    <option value="suggestion">Предложение</option>
+               </select>
+
+               <label for="message" class="form__label">Сообщение</label>
+               <textarea id="message" name="message" rows="4" required aria-describedby="messageHelp"
+                    class="form__textarea"></textarea>
+               <small id="messageHelp" class="form__help">Опишите ваш вопрос подробно</small>
+
+               <div class="form__actions">
+                    <button type="button" id="closeDialog" class="button button--secondary">Закрыть</button>
+                    <button type="submit" class="button button--primary">Отправить</button>
+               </div>
+          </form>
+     </dialog>
+
+     <script src="main.js"></script>
 </body>
 
 </html>
