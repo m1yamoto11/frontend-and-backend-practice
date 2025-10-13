@@ -3,47 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты</title>
+    <title>Контакты - Портфолио</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../style/styles.css">
 </head>
-<body>
-    <header class="header">
-        <h1>Мой сайт</h1>
-    </header>
-
-    <nav class="navigation">
-        <ul>
-            <li><a href="../index.html">Главная</a></li>
-            <li><a href="news.html">Новости</a></li>
-            <li><a href="practices.html">Практики</a></li>
-            <li><a href="goods.html">Товары</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-        </ul>
-    </nav>
-
-    <main class="main-content">
-        <h2>Контакты</h2>
-        
-        <div class="contact-info">
-            <div class="contact-item">
-                <h3>Email</h3>
-                <p>artem.kokoev@student.university.ru</p>
+<body class="page bg-light">
+    <div class="container-fluid p-0">
+        <!-- Header -->
+        <header class="header bg-primary text-white py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h1 class="header__title h3 mb-1">Портфолио студента</h1>
+                        <p class="header__subtitle mb-0 opacity-75">Свяжитесь со мной</p>
+                    </div>
+                    <div class="col-auto">
+                        <span class="badge bg-light text-primary">ЭФБО-18-24</span>
+                    </div>
+                </div>
             </div>
+        </header>
 
-            <div class="contact-item">
-                <h3>Адрес</h3>
-                <p>г. Москва, ул. Учебная, д. 1<br>
-                   Университет ИПТИП, корпус 2</p>
+        <!-- Navigation -->
+        <nav class="nav navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav__list navbar-nav">
+                        <li class="nav__item nav-item">
+                            <a class="nav__link nav-link" href="../index.html">
+                                <i class="bi bi-house me-1"></i>Главная
+                            </a>
+                        </li>
+                        <li class="nav__item nav-item">
+                            <a class="nav__link nav-link" href="news.html">
+                                <i class="bi bi-newspaper me-1"></i>Новости
+                            </a>
+                        </li>
+                        <li class="nav__item nav-item">
+                            <a class="nav__link nav-link" href="practices.html">
+                                <i class="bi bi-code-slash me-1"></i>Практики
+                            </a>
+                        </li>
+                        <li class="nav__item nav-item">
+                            <a class="nav__link nav-link" href="goods.html">
+                                <i class="bi bi-cart me-1"></i>Товары
+                            </a>
+                        </li>
+                        <li class="nav__item nav__item--active nav-item">
+                            <a class="nav__link nav-link active" href="contacts.html">
+                                <i class="bi bi-telephone me-1"></i>Контакты
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </nav>
 
-            <div class="contact-item">
-                <button class="call-button">Позвоните мне</button>
+        <!-- Main Content -->
+        <main class="main container my-4">
+            <div class="contacts">
+                <div class="contacts__header card mb-4">
+                    <div class="card-body">
+                        <h2 class="contacts__title card-title h4">
+                            Свяжитесь со мной
+                        </h2>
+                        <p class="contacts__description card-text">
+                            Буду рад ответить на ваши вопросы и обсудить возможности сотрудничества
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Контактная информация -->
+                    <div class="col-lg-6">
+                        <div class="contacts__info-card card h-100">
+                            <div class="card-header">
+                                <h3 class="card-title h5 mb-0">
+                                    Контактная информация
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="contacts__list">
+                                    <div class="contact-item mb-4 p-3 bg-light rounded">
+                                        <div class="contact-item__header d-flex align-items-center mb-2">
+                                            <i class="bi bi-envelope-fill text-primary me-2 fs-4"></i>
+                                            <h4 class="contact-item__title h6 mb-0">Email</h4>
+                                        </div>
+                                        <p class="contact-item__value mb-0">
+                                            <a href="mailto:artemmireatop@gmail.ru7" class="text-decoration-none">
+                                                artemmireatop@gmail.ru7
+                                            </a>
+                                        </p>
+                                        <small class="text-muted">Для учебных и деловых вопросов</small>
+                                    </div>
+
+                                    <div class="contact-item mb-4 p-3 bg-light rounded">
+                                        <div class="contact-item__header d-flex align-items-center mb-2">
+                                            <i class="bi bi-geo-alt-fill text-danger me-2 fs-4"></i>
+                                            <h4 class="contact-item__title h6 mb-0">Местоположение</h4>
+                                        </div>
+                                        <p class="contact-item__value mb-0">
+                                            Москва ул Пушкина дом Пушкина,<br>
+                                            квартира Пушкина
+                                        </p>
+                                        <small class="text-muted">Адрес для связи</small>
+                                    </div>
+
+                                    <div class="contact-item mb-4 p-3 bg-light rounded">
+                                        <div class="contact-item__header d-flex align-items-center mb-2">
+                                            <i class="bi bi-github text-dark me-2 fs-4"></i>
+                                            <h4 class="contact-item__title h6 mb-0">GitHub</h4>
+                                        </div>
+                                        <p class="contact-item__value mb-0">
+                                            <a href="#" class="text-decoration-none">
+                                                github.com/kokoev-artem
+                                            </a>
+                                        </p>
+                                        <small class="text-muted">Мои проекты и исходный код</small>
+                                    </div>
+
+
+                                    <div class="contact-item__actions text-center mt-3">
+                                        <button class="call-button btn btn-success btn-lg">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            Позвоните мне
+                                        </button>
+                                        <p class="text-muted mt-2 small">
+                                            Доступен в рабочие дни с 9:00 до 18:00
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Форма обратной связи -->
+                    <div class="col-lg-6">
+                        <div class="contacts__form-card card h-100">
+                            <div class="card-header">
+                                <h3 class="card-title h5 mb-0">
+                                    Отправить сообщение
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="contacts__form">
+                                    <div class="mb-3">
+                                        <label for="contactName" class="form-label">
+                                            <i class="bi bi-person me-1"></i>
+                                            Ваше имя *
+                                        </label>
+                                        <input type="text" class="form-control" id="contactName" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="contactEmail" class="form-label">
+                                            <i class="bi bi-envelope me-1"></i>
+                                            Email *
+                                        </label>
+                                        <input type="email" class="form-control" id="contactEmail" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="contactPhone" class="form-label">
+                                            <i class="bi bi-telephone me-1"></i>
+                                            Телефон
+                                        </label>
+                                        <input type="tel" class="form-control" id="contactPhone" placeholder="+7 (900) 000-00-00">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="contactSubject" class="form-label">
+                                            <i class="bi bi-tag me-1"></i>
+                                            Тема обращения *
+                                        </label>
+                                        <select class="form-select" id="contactSubject" required>
+                                            <option value="">Выберите тему</option>
+                                            <option value="collaboration">Сотрудничество</option>
+                                            <option value="question">Общий вопрос</option>
+                                            <option value="project">Обсуждение проекта</option>
+                                            <option value="study">Учебные вопросы</option>
+                                            <option value="other">Другое</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="contactMessage" class="form-label">
+                                            <i class="bi bi-chat-text me-1"></i>
+                                            Сообщение *
+                                        </label>
+                                        <textarea class="form-control" id="contactMessage" rows="5" required 
+                                            placeholder="Опишите ваш вопрос или предложение подробно..."></textarea>
+                                    </div>
+
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="contactConsent" required>
+                                        <label class="form-check-label" for="contactConsent">
+                                            Я согласен на обработку персональных данных *
+                                        </label>
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            <i class="bi bi-send me-2"></i>
+                                            Отправить сообщение
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
-    </main>
+        </main>
 
-    <footer class="footer">
-        <p>&copy; 2025 Кокоев Артем. Все права защищены.</p>
-    </footer>
+        <!-- Footer -->
+        <footer class="footer bg-dark text-white py-4 mt-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="footer__text mb-0">&copy; 2025 Кокоев Артем. Все права защищены.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="contacts.html" class="footer__link text-white text-decoration-none me-3">Контакты</a>
+                        <a href="#" class="footer__link text-white text-decoration-none">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
