@@ -150,67 +150,130 @@
                                 </h3>
                             </div>
                             <div class="card-body">
-                                <form class="contacts__form">
-                                    <div class="mb-3">
-                                        <label for="contactName" class="form-label">
-                                            <i class="bi bi-person me-1"></i>
-                                            Ваше имя *
-                                        </label>
-                                        <input type="text" class="form-control" id="contactName" required>
-                                    </div>
+                                <form class="contacts__form" aria-labelledby="contact-form-title" novalidate>
+                                    <h3 id="contact-form-title" class="visually-hidden">Форма обратной связи</h3>
+                                    
+                                    <fieldset class="border-0 p-0 m-0">
+                                        <legend class="visually-hidden">Личная информация</legend>
+                                        
+                                        <div class="mb-3">
+                                            <label for="contactName" class="form-label">
+                                                <i class="bi bi-person me-1" aria-hidden="true"></i>
+                                                Ваше имя *
+                                            </label>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   id="contactName" 
+                                                   name="contactName"
+                                                   required 
+                                                   aria-required="true"
+                                                   aria-describedby="contactNameHelp"
+                                                   autocomplete="given-name"
+                                                   minlength="2">
+                                            <div id="contactNameHelp" class="form-text">Минимум 2 символа</div>
+                                            <div class="invalid-feedback" role="alert"></div>
+                                        </div>
 
-                                    <div class="mb-3">
-                                        <label for="contactEmail" class="form-label">
-                                            <i class="bi bi-envelope me-1"></i>
-                                            Email *
-                                        </label>
-                                        <input type="email" class="form-control" id="contactEmail" required>
-                                    </div>
+                                        <div class="mb-3">
+                                            <label for="contactEmail" class="form-label">
+                                                <i class="bi bi-envelope me-1" aria-hidden="true"></i>
+                                                Email *
+                                            </label>
+                                            <input type="email" 
+                                                   class="form-control" 
+                                                   id="contactEmail"
+                                                   name="contactEmail" 
+                                                   required
+                                                   aria-required="true"
+                                                   autocomplete="email"
+                                                   aria-describedby="contactEmailHelp">
+                                            <div id="contactEmailHelp" class="form-text">Введите действующий email адрес</div>
+                                            <div class="invalid-feedback" role="alert"></div>
+                                        </div>
 
-                                    <div class="mb-3">
-                                        <label for="contactPhone" class="form-label">
-                                            <i class="bi bi-telephone me-1"></i>
-                                            Телефон
-                                        </label>
-                                        <input type="tel" class="form-control" id="contactPhone" placeholder="+7 (900) 000-00-00">
-                                    </div>
+                                        <div class="mb-3">
+                                            <label for="contactPhone" class="form-label">
+                                                <i class="bi bi-telephone me-1" aria-hidden="true"></i>
+                                                Телефон
+                                            </label>
+                                            <input type="tel" 
+                                                   class="form-control" 
+                                                   id="contactPhone"
+                                                   name="contactPhone"
+                                                   placeholder="+7 (900) 000-00-00"
+                                                   autocomplete="tel"
+                                                   aria-describedby="contactPhoneHelp"
+                                                   pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+                                            <div id="contactPhoneHelp" class="form-text">Формат: +7 (900) 000-00-00</div>
+                                            <div class="invalid-feedback" role="alert"></div>
+                                        </div>
+                                    </fieldset>
 
-                                    <div class="mb-3">
-                                        <label for="contactSubject" class="form-label">
-                                            <i class="bi bi-tag me-1"></i>
-                                            Тема обращения *
-                                        </label>
-                                        <select class="form-select" id="contactSubject" required>
-                                            <option value="">Выберите тему</option>
-                                            <option value="collaboration">Сотрудничество</option>
-                                            <option value="question">Общий вопрос</option>
-                                            <option value="project">Обсуждение проекта</option>
-                                            <option value="study">Учебные вопросы</option>
-                                            <option value="other">Другое</option>
-                                        </select>
-                                    </div>
+                                    <fieldset class="border-0 p-0 m-0">
+                                        <legend class="visually-hidden">Сообщение</legend>
+                                        
+                                        <div class="mb-3">
+                                            <label for="contactSubject" class="form-label">
+                                                <i class="bi bi-tag me-1" aria-hidden="true"></i>
+                                                Тема обращения *
+                                            </label>
+                                            <select class="form-select" 
+                                                    id="contactSubject"
+                                                    name="contactSubject" 
+                                                    required
+                                                    aria-required="true"
+                                                    aria-describedby="contactSubjectHelp">
+                                                <option value="">Выберите тему</option>
+                                                <option value="collaboration">Сотрудничество</option>
+                                                <option value="question">Общий вопрос</option>
+                                                <option value="project">Обсуждение проекта</option>
+                                                <option value="study">Учебные вопросы</option>
+                                                <option value="other">Другое</option>
+                                            </select>
+                                            <div id="contactSubjectHelp" class="form-text">Выберите подходящую тему обращения</div>
+                                            <div class="invalid-feedback" role="alert"></div>
+                                        </div>
 
-                                    <div class="mb-4">
-                                        <label for="contactMessage" class="form-label">
-                                            <i class="bi bi-chat-text me-1"></i>
-                                            Сообщение *
-                                        </label>
-                                        <textarea class="form-control" id="contactMessage" rows="5" required 
-                                            placeholder="Опишите ваш вопрос или предложение подробно..."></textarea>
-                                    </div>
+                                        <div class="mb-4">
+                                            <label for="contactMessage" class="form-label">
+                                                <i class="bi bi-chat-text me-1" aria-hidden="true"></i>
+                                                Сообщение *
+                                            </label>
+                                            <textarea class="form-control" 
+                                                      id="contactMessage"
+                                                      name="contactMessage" 
+                                                      rows="5" 
+                                                      required
+                                                      aria-required="true" 
+                                                      placeholder="Опишите ваш вопрос или предложение подробно..."
+                                                      aria-describedby="contactMessageHelp"
+                                                      minlength="10"></textarea>
+                                            <div id="contactMessageHelp" class="form-text">Минимум 10 символов. Опишите ваш вопрос подробно</div>
+                                            <div class="invalid-feedback" role="alert"></div>
+                                        </div>
+                                    </fieldset>
 
                                     <div class="mb-3 form-check">
-                                        <input type="checkbox" class="form-check-input" id="contactConsent" required>
+                                        <input type="checkbox" 
+                                               class="form-check-input" 
+                                               id="contactConsent"
+                                               name="contactConsent" 
+                                               required
+                                               aria-required="true"
+                                               aria-describedby="contactConsentHelp">
                                         <label class="form-check-label" for="contactConsent">
                                             Я согласен на обработку персональных данных *
                                         </label>
+                                        <div id="contactConsentHelp" class="form-text">Обязательно для отправки формы</div>
+                                        <div class="invalid-feedback" role="alert"></div>
                                     </div>
 
                                     <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary btn-lg">
-                                            <i class="bi bi-send me-2"></i>
+                                        <button type="submit" class="btn btn-primary btn-lg" aria-describedby="submitHelp">
+                                            <i class="bi bi-send me-2" aria-hidden="true"></i>
                                             Отправить сообщение
                                         </button>
+                                        <div id="submitHelp" class="form-text mt-2 text-center">Нажмите для отправки сообщения</div>
                                     </div>
                                 </form>
                             </div>

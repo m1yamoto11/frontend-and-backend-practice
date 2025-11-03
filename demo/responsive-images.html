@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Демо: Адаптивные изображения - Портфолио</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../style/styles.css">
+    <style>
+        .demo-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 2px solid var(--color-light);
+            border-radius: var(--border-radius-lg);
+            background: var(--color-white);
+        }
+        
+        .demo-title {
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .img-demo {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--color-light);
+            border-radius: var(--border-radius-sm);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .gallery-item {
+            background: var(--color-white);
+            border: 1px solid var(--color-light);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            transition: var(--transition-base);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .gallery-content {
+            padding: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .gallery-img {
+                height: 120px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .gallery-img {
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body class="page bg-light">
+    <div class="container-fluid p-0">
+        <!-- Header -->
+        <header class="header bg-primary text-white py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h1 class="header__title h3 mb-1">Демо: Адаптивные изображения</h1>
+                        <p class="header__subtitle mb-0 opacity-75">Различные техники работы с изображениями</p>
+                    </div>
+                    <div class="col-auto">
+                        <a href="../index.html" class="btn btn-light btn-sm">
+                            <i class="bi bi-arrow-left me-1"></i>Назад
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main container my-4">
+            <!-- Базовое адаптивное изображение -->
+            <section class="demo-section">
+                <h2 class="demo-title h4">1. Базовое адаптивное изображение (100% ширины)</h2>
+                <p>Простейший способ сделать изображение адаптивным - использовать CSS свойства:</p>
+                
+                <div class="code-block">
+                    <code>
+                        img {<br>
+                        &nbsp;&nbsp;max-width: 100%;<br>
+                        &nbsp;&nbsp;height: auto;<br>
+                        }
+                    </code>
+                </div>
+                
+                <img src="../images/tema.jpg" 
+                     alt="Адаптивное изображение студента" 
+                     class="img-demo img-fluid">
+                
+                <p class="mt-3">
+                    <small class="text-muted">
+                        Изображение автоматически масштабируется в зависимости от размера контейнера.
+                    </small>
+                </p>
+            </section>
+
+            <!-- Picture с srcset -->
+            <section class="demo-section">
+                <h2 class="demo-title h4">2. Элемент &lt;picture&gt; с srcset для разных форматов</h2>
+                <p>Использование современных форматов изображений с fallback на JPEG:</p>
+                
+                <div class="code-block">
+                    <code>
+                        &lt;picture&gt;<br>
+                        &nbsp;&nbsp;&lt;source type="image/webp" srcset="image.webp"&gt;<br>
+                        &nbsp;&nbsp;&lt;source type="image/avif" srcset="image.avif"&gt;<br>
+                        &nbsp;&nbsp;&lt;img src="image.jpg" alt="Описание"&gt;<br>
+                        &lt;/picture&gt;
+                    </code>
+                </div>
+                
+                <picture>
+                    <source media="(max-width: 576px)" srcset="../images/pesik.jpg" sizes="100vw">
+                    <source media="(max-width: 768px)" srcset="../images/pesik.jpg" sizes="50vw">
+                    <img src="../images/pesik.jpg" 
+                         srcset="../images/pesik.jpg 1x, ../images/pesik.jpg 2x"
+                         alt="Изображение с поддержкой разных форматов" 
+                         class="img-demo img-fluid">
+                </picture>
+                
+                <p class="mt-3">
+                    <small class="text-muted">
+                        Браузер автоматически выберет наиболее подходящий формат и размер.
+                    </small>
+                </p>
+            </section>
+
+            <!-- Разные изображения для устройств -->
+            <section class="demo-section">
+                <h2 class="demo-title h4">3. Разные изображения для десктопа, планшета, мобильных</h2>
+                <p>Использование медиа-запросов для показа разных изображений:</p>
+                
+                <div class="code-block">
+                    <code>
+                        &lt;picture&gt;<br>
+                        &nbsp;&nbsp;&lt;source media="(min-width: 768px)" srcset="desktop.jpg"&gt;<br>
+                        &nbsp;&nbsp;&lt;source media="(min-width: 576px)" srcset="tablet.jpg"&gt;<br>
+                        &nbsp;&nbsp;&lt;img src="mobile.jpg" alt="Описание"&gt;<br>
+                        &lt;/picture&gt;
+                    </code>
+                </div>
+                
+                <picture>
+                    <source media="(min-width: 768px)" srcset="../images/zavod.jpg">
+                    <source media="(min-width: 576px)" srcset="../images/egorKrid.jpg">
+                    <img src="../images/tema.jpg" 
+                         alt="Изображение, меняющееся в зависимости от размера экрана" 
+                         class="img-demo img-fluid">
+                </picture>
+                
+                <div class="alert alert-info mt-3">
+                    <i class="bi bi-info-circle me-2"></i>
+                    <strong>Попробуйте:</strong> Измените размер окна браузера, чтобы увидеть, как меняется изображение!
+                </div>
+            </section>
+
+            <!-- Retina display -->
+            <section class="demo-section">
+                <h2 class="demo-title h4">4. Поддержка Retina дисплеев (1x/2x)</h2>
+                <p>Использование srcset для экранов с высокой плотностью пикселей:</p>
+                
+                <div class="code-block">
+                    <code>
+                        &lt;img src="image.jpg"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;srcset="image.jpg 1x, image@2x.jpg 2x"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt="Описание"&gt;
+                    </code>
+                </div>
+                
+                <img src="../images/tema.jpg" 
+                     srcset="../images/tema.jpg 1x, ../images/tema.jpg 2x"
+                     alt="Изображение с поддержкой Retina дисплеев" 
+                     class="img-demo img-fluid"
+                     style="max-width: 300px;">
+                
+                <p class="mt-3">
+                    <small class="text-muted">
+                        На экранах с высокой плотностью пикселей браузер загрузит изображение с удвоенным разрешением.
+                    </small>
+                </p>
+            </section>
+
+            <!-- Object-fit свойства -->
+            <section class="demo-section">
+                <h2 class="demo-title h4">5. Свойства object-fit для стилизации</h2>
+                <p>Демонстрация различных значений object-fit:</p>
+                
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <h5>object-fit: cover</h5>
+                        <img src="../images/pesik.jpg" 
+                             alt="Object-fit cover" 
+                             class="img-demo"
+                             style="width: 200px; height: 150px; object-fit: cover;">
+                        <small class="text-muted d-block mt-2">Сохраняет пропорции, обрезает лишнее</small>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>object-fit: contain</h5>
+                        <img src="../images/pesik.jpg" 
+                             alt="Object-fit contain" 
+                             class="img-demo"
+                             style="width: 200px; height: 150px; object-fit: contain; background: #f8f9fa;">
+                        <small class="text-muted d-block mt-2">Помещает всё изображение в контейнер</small>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>object-fit: fill</h5>
+                        <img src="../images/pesik.jpg" 
+                             alt="Object-fit fill" 
+                             class="img-demo"
+                             style="width: 200px; height: 150px; object-fit: fill;">
+                        <small class="text-muted d-block mt-2">Растягивает изображение</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Адаптивная галерея -->
+            <section class="demo-section">
+                <h2 class="demo-title h4">6. Адаптивная галерея — перестройка под устройства</h2>
+                <p>Галерея, которая перестраивается в зависимости от размера экрана:</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <picture>
+                            <source media="(max-width: 576px)" srcset="../images/tema.jpg" sizes="150px">
+                            <source media="(max-width: 768px)" srcset="../images/tema.jpg" sizes="200px">
+                            <img src="../images/tema.jpg" 
+                                 alt="Изображение галереи 1" 
+                                 class="gallery-img">
+                        </picture>
+                        <div class="gallery-content">
+                            <h6>Изображение 1</h6>
+                            <small class="text-muted">Адаптивное изображение</small>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <picture>
+                            <source media="(max-width: 576px)" srcset="../images/pesik.jpg" sizes="150px">
+                            <source media="(max-width: 768px)" srcset="../images/pesik.jpg" sizes="200px">
+                            <img src="../images/pesik.jpg" 
+                                 alt="Изображение галереи 2" 
+                                 class="gallery-img">
+                        </picture>
+                        <div class="gallery-content">
+                            <h6>Изображение 2</h6>
+                            <small class="text-muted">С поддержкой разных размеров</small>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <picture>
+                            <source media="(max-width: 576px)" srcset="../images/zavod.jpg" sizes="150px">
+                            <source media="(max-width: 768px)" srcset="../images/zavod.jpg" sizes="200px">
+                            <img src="../images/zavod.jpg" 
+                                 alt="Изображение галереи 3" 
+                                 class="gallery-img">
+                        </picture>
+                        <div class="gallery-content">
+                            <h6>Изображение 3</h6>
+                            <small class="text-muted">Оптимизированная загрузка</small>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <picture>
+                            <source media="(max-width: 576px)" srcset="../images/egorKrid.jpg" sizes="150px">
+                            <source media="(max-width: 768px)" srcset="../images/egorKrid.jpg" sizes="200px">
+                            <img src="../images/egorKrid.jpg" 
+                                 alt="Изображение галереи 4" 
+                                 class="gallery-img">
+                        </picture>
+                        <div class="gallery-content">
+                            <h6>Изображение 4</h6>
+                            <small class="text-muted">Responsive дизайн</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-success mt-3">
+                    <i class="bi bi-check-circle me-2"></i>
+                    <strong>Адаптивность:</strong> 
+                    Десктоп: 4 колонки | Планшет: 3 колонки | Мобильный: 2 колонки
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer bg-dark text-white py-4 mt-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="footer__text mb-0">&copy; 2025 Кокоев Артем. Демо адаптивных изображений.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="../index.html" class="footer__link text-white text-decoration-none">
+                            <i class="bi bi-house me-1"></i>На главную
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

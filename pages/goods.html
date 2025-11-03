@@ -74,7 +74,16 @@
                 <div class="row g-3">
                     <div class="col-md-4">
                         <div class="card">
-                            <img src="../images/pesik.jpg" alt="Ноутбук для разработки" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <picture>
+                                <source media="(max-width: 576px)" srcset="../images/pesik.jpg" sizes="100vw">
+                                <source media="(max-width: 768px)" srcset="../images/pesik.jpg" sizes="50vw">
+                                <img src="../images/pesik.jpg" 
+                                     srcset="../images/pesik.jpg 1x, ../images/pesik.jpg 2x"
+                                     alt="Современный ноутбук для веб-разработки с высокой производительностью" 
+                                     class="card-img-top" 
+                                     style="height: 200px; object-fit: cover;"
+                                     loading="lazy">
+                            </picture>
                             <div class="card-body">
                                 <h5 class="card-title">Ноутбук для разработки</h5>
                                 <p class="card-text text-muted">
@@ -87,7 +96,16 @@
 
                     <div class="col-md-4">
                         <div class="card">
-                            <img src="../images/zavod.jpg" alt="Механическая клавиатура" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <picture>
+                                <source media="(max-width: 576px)" srcset="../images/zavod.jpg" sizes="100vw">
+                                <source media="(max-width: 768px)" srcset="../images/zavod.jpg" sizes="50vw">
+                                <img src="../images/zavod.jpg" 
+                                     srcset="../images/zavod.jpg 1x, ../images/zavod.jpg 2x"
+                                     alt="Механическая клавиатура с RGB подсветкой для программирования" 
+                                     class="card-img-top" 
+                                     style="height: 200px; object-fit: cover;"
+                                     loading="lazy">
+                            </picture>
                             <div class="card-body">
                                 <h5 class="card-title">Механическая клавиатура</h5>
                                 <p class="card-text text-muted">
@@ -100,7 +118,16 @@
 
                     <div class="col-md-4">
                         <div class="card">
-                            <img src="../images/egorKrid.jpg" alt="Монитор 4K" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <picture>
+                                <source media="(max-width: 576px)" srcset="../images/egorKrid.jpg" sizes="100vw">
+                                <source media="(max-width: 768px)" srcset="../images/egorKrid.jpg" sizes="50vw">
+                                <img src="../images/egorKrid.jpg" 
+                                     srcset="../images/egorKrid.jpg 1x, ../images/egorKrid.jpg 2x"
+                                     alt="Профессиональный 4K монитор для веб-разработки и дизайна" 
+                                     class="card-img-top" 
+                                     style="height: 200px; object-fit: cover;"
+                                     loading="lazy">
+                            </picture>
                             <div class="card-body">
                                 <h5 class="card-title">Монитор 4K</h5>
                                 <p class="card-text text-muted">
