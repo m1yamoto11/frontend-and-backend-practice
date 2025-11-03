@@ -1,4 +1,3 @@
-/* CSS переменные */
 :root {
     --color-primary: #3498db;
     --color-secondary: #2ecc71;
@@ -39,7 +38,6 @@
     --transition-slow: all 0.5s ease;
 }
 
-/* Тёмная тема */
 [data-theme="dark"] {
     --color-dark: #1a252f;
     --color-light: #34495e;
@@ -48,7 +46,6 @@
     --color-muted: #bdc3c7;
 }
 
-/* Базовые стили */
 * {
     margin: 0;
     padding: 0;
@@ -62,7 +59,6 @@ body {
     background-color: var(--color-light);
 }
 
-/* Доступность */
 .visually-hidden:not(:focus):not(:active) {
     position: absolute !important;
     width: 1px !important;
@@ -75,7 +71,6 @@ body {
     border: 0 !important;
 }
 
-/* Skip link для доступности */
 .skip-link {
     position: absolute;
     left: -9999px;
@@ -98,13 +93,11 @@ body {
     font-weight: bold;
 }
 
-/* Улучшения фокуса */
 *:focus {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
 
-/* Улучшенный фокус для интерактивных элементов */
 a:focus,
 button:focus,
 input:focus,
@@ -115,7 +108,6 @@ textarea:focus {
     box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
 }
 
-/* Уменьшение анимаций для пользователей с ограниченными возможностями */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -127,13 +119,11 @@ textarea:focus {
     }
 }
 
-/* Блок page */
 .page {
     min-height: 100vh;
     background-color: var(--color-light);
 }
 
-/* Блок header */
 .header {
     background: linear-gradient(135deg, var(--color-dark), var(--color-primary));
     color: var(--color-white);
@@ -150,7 +140,6 @@ textarea:focus {
     opacity: 0.8;
 }
 
-/* Блок nav */
 .nav {
     background-color: var(--color-dark);
     box-shadow: var(--shadow-md);
@@ -186,14 +175,12 @@ textarea:focus {
     transform: translateY(-1px);
 }
 
-/* Блок main */
 .main {
     max-width: 1200px;
     margin: 0 auto;
     padding: var(--spacing-lg) var(--spacing-sm);
 }
 
-/* Блок profile */
 .profile {
     margin-bottom: var(--spacing-xl);
 }
@@ -241,7 +228,6 @@ textarea:focus {
     margin-bottom: var(--spacing-sm);
 }
 
-/* Блок about */
 .about {
     margin-bottom: var(--spacing-xl);
 }
@@ -272,7 +258,6 @@ textarea:focus {
     margin-bottom: 0;
 }
 
-/* Блок skills */
 .skills {
     margin-bottom: var(--spacing-xl);
 }
@@ -328,7 +313,6 @@ textarea:focus {
     }
 }
 
-/* Блок experience */
 .experience {
     margin-bottom: var(--spacing-xl);
 }
@@ -368,7 +352,6 @@ textarea:focus {
     border-radius: var(--border-radius-sm);
 }
 
-/* Блок projects */
 .projects {
     margin-bottom: var(--spacing-xl);
 }
@@ -390,7 +373,6 @@ textarea:focus {
     font-size: var(--font-size-lg);
 }
 
-/* Блок project-card */
 .project-card {
     border: none;
     border-radius: var(--border-radius-md);
@@ -425,7 +407,6 @@ textarea:focus {
     margin-bottom: var(--spacing-xs);
 }
 
-/* Блок footer */
 .footer {
     background: linear-gradient(135deg, var(--color-dark), var(--color-primary));
     color: var(--color-white);
@@ -448,7 +429,6 @@ textarea:focus {
     text-decoration: underline;
 }
 
-/* Кнопки с БЭМ */
 .button {
     border: none;
     padding: var(--spacing-sm) var(--spacing-md);
@@ -491,7 +471,6 @@ textarea:focus {
     background-color: var(--color-secondary);
 }
 
-/* Диалог с БЭМ */
 .dialog {
     border: none;
     border-radius: var(--border-radius-lg);
@@ -519,7 +498,6 @@ textarea:focus {
     text-align: center;
 }
 
-/* Формы с БЭМ */
 .form {
     padding: var(--spacing-lg);
 }
@@ -598,7 +576,6 @@ textarea:focus {
     border-top: 1px solid var(--color-light);
 }
 
-/* Товары с БЭМ */
 .goods-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -640,7 +617,6 @@ textarea:focus {
     color: var(--color-danger);
 }
 
-/* Новости с БЭМ */
 .news-item {
     border-bottom: 1px solid var(--color-light);
     padding: var(--spacing-md) var(--spacing-lg);
@@ -669,7 +645,6 @@ textarea:focus {
     margin-bottom: var(--spacing-sm);
 }
 
-/* Контакты с БЭМ */
 .contact-info {
     padding: var(--spacing-lg);
 }
@@ -711,8 +686,39 @@ textarea:focus {
     box-shadow: var(--shadow-md);
 }
 
-/* Адаптивность */
-/* Tablet landscape and smaller desktop */
+.img-lazy {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.img-lazy.loaded {
+    opacity: 1;
+}
+
+.header {
+    contain: layout style paint;
+}
+
+.nav {
+    contain: layout style;
+}
+
+.main {
+    contain: layout;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+.form__input:focus,
+.form__select:focus,
+.form__textarea:focus {
+    will-change: border-color, box-shadow;
+}
+
 @media (max-width: 1200px) {
     .main {
         max-width: 960px;
@@ -734,7 +740,6 @@ textarea:focus {
     }
 }
 
-/* Tablet portrait */
 @media (max-width: 768px) {
     :root {
         --font-size-base: 0.9rem;
@@ -791,7 +796,6 @@ textarea:focus {
         width: 100%;
     }
     
-    /* Улучшения для карточек */
     .card {
         margin-bottom: var(--spacing-md);
     }
@@ -800,7 +804,6 @@ textarea:focus {
         padding: var(--spacing-md);
     }
     
-    /* Контакты адаптивность */
     .contact-item {
         margin-bottom: var(--spacing-md);
         text-align: left;
@@ -812,7 +815,6 @@ textarea:focus {
     }
 }
 
-/* Mobile landscape */
 @media (max-width: 576px) {
     .header {
         padding: var(--spacing-md);
@@ -859,7 +861,6 @@ textarea:focus {
     }
 }
 
-/* Анимации и переходы */
 @media (prefers-reduced-motion: no-preference) {
     .project-card,
     .goods-item,
@@ -879,7 +880,6 @@ textarea:focus {
     }
 }
 
-/* Состояния для интерактивных элементов */
 .nav__link:focus,
 .button:focus {
     outline: 2px solid var(--color-primary);
